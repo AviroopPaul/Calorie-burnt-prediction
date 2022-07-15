@@ -2,7 +2,7 @@ import pickle
 import streamlit as st
 import numpy as np
 
-calorie_model=pickle.load(open('D:/ML-projects/Calorie-burnt-prediction/calorie_burnt.sav','rb'))
+calorie_model=pickle.load(open('calorie_burnt.sav','rb'))
 
 st.title("Calorie Burnt Prediction using Machine Learning")
 
