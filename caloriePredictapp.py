@@ -2,7 +2,7 @@ import pickle
 import streamlit as st
 import numpy as np
 
-calorie_model=pickle.load(open('calorie_burnt.sav','rb'))
+calorie_model=pickle.load(open('D:\ML-projects\Calorie-burnt-prediction\calorie_burnt.sav','rb'))
 
 st.title("Calorie Burnt Prediction using Machine Learning")
 
@@ -15,17 +15,17 @@ HeartRate=st.text_input("Heart Rate")
 BodyTemperature=st.text_input("Body Temperature")
 
 caloriesBurnt=0
-
-inputData=(Gender,Age,Height,Weight,Duration, HeartRate, BodyTemperature)
-numpyArray=np.array(inputData,dtype=float)
-reshapedArray=numpyArray.reshape(1,-1)
-
-
 if(st.button('Find Calories Burnt')):
+    inputData=(Gender,Age,Height,Weight,Duration, HeartRate, BodyTemperature)
+    numpyArray=np.array(inputData,dtype=float)
+    reshapedArray=numpyArray.reshape(1,-1)
     caloriesBurnt=calorie_model.predict(reshapedArray)
+    
 st.write('Calories Burnt(in kcal): ')
 caloriesBurnt = "{:.2f}".format(caloriesBurnt[0])
 st.success(caloriesBurnt) 
-# st.write('kcal')
+st.write('kcal')
+
+st.write("Made by Aviroop Paul.")
 
 
